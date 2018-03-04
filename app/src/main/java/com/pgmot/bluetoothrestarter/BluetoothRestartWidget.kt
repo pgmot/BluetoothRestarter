@@ -26,14 +26,11 @@ class BluetoothRestartWidget : AppWidgetProvider() {
     }
 
     companion object {
-
-        internal fun updateAppWidget(context: Context, appWidgetManager: AppWidgetManager,
-                                     appWidgetId: Int) {
-
-            val widgetText = context.getString(R.string.appwidget_text)
+        internal fun updateAppWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
             // Construct the RemoteViews object
             val views = RemoteViews(context.packageName, R.layout.bluetooth_restart_widget)
-            views.setTextViewText(R.id.appwidget_text, widgetText)
+
+            views.setImageViewResource(R.id.restart, android.R.drawable.ic_menu_rotate)
 
             // Instruct the widget manager to update the widget
             appWidgetManager.updateAppWidget(appWidgetId, views)
